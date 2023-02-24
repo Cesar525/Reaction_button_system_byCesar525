@@ -2,17 +2,17 @@ body{
     background-color:black;
 }
 .body_header{
-    background-color:red;
+    background-color:black;
     margin: 0 auto;
     width: 1284.5px;
 }
 .body_chest{
-    background-color:aqua;
+    background-color:black;
     margin: 0 auto;
     width: 1284.5px;
 }
 .body_footer{
-    background-color:blue;
+    background-color: black;
     margin: 0 auto;
     width: 1284.5px;
 }
