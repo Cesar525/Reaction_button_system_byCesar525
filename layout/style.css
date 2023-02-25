@@ -24,12 +24,9 @@ body{
     border: solid 1px gray;
     transition: background-color ease 0.3s;
   }
-  
-  .like-button:hover{
-      background-color: rgb(48, 48, 48);
-  }
-  
+
   .emoji-content{
+    display:none;
       background-color: white;
       border: solid 1px #3f3c3c;
       border-radius: 11pc;
@@ -44,11 +41,6 @@ body{
       margin-bottom: -2px;
   }
   
-  .show-emojis{
-      background-color: blue;
+  .like-button:hover .emoji-content{
+    display:block;
   }
-  
-  .show-emojis:hover .emoji-content{
-     background-color:red;
-      }
-  
