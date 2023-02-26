@@ -95,9 +95,7 @@ $emojis = array(
 
 
 <script>
-$(".emojis-button").hide().each(function(i) {
-  $(this).delay(i+400).fadeIn(700);
-});
+
 
 </script>
 
