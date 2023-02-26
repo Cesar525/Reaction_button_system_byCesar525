@@ -93,13 +93,11 @@ $emojis = array(
 </div>
 </div>
 
-<div id="one"></div>
 
 <script>
-
-
-const elements = document.querySelectorAll("#emojis");
-let count_elements = elements.length;
+$(".emojis-button").hide().each(function(i) {
+  $(this).delay(i+400).fadeIn(700);
+});
 
 </script>
 
