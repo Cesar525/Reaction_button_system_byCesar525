@@ -66,9 +66,13 @@ width: 351px;
 
 </style>
 
+<script>
+
+</script>
+
 <?php 
 // ADDING EMOJIS
-$emojis = array(
+$emojis_path = array(
 "emojis/thumbsup.png",
 "emojis/love.png",
 "emojis/openmouth.png",
@@ -81,29 +85,36 @@ $emojis = array(
 <div style="background-color:white;padding: 11px;">
 <div class="like-main-container">
     <span style="color:white">You like This and 20 others</span><br><hr>
-    <button id="current" onclick="current(this);" style="display:inline-block;" class="like-button like-button-effect">Like</button>
+    <button id="current" onclick="current(this)" style="display:inline-block;" class="like-button like-button-effect"></button>
 <div class="emojis-container">
     <?php
-    $count = count($emojis);
+    $count = count($emojis_path);
 
     for($counting = 0; $counting < $count; $counting++){
-        echo'<img id="emojis" onclick="ProccessingLikes(this);" class="emojis-button"  src="'.$emojis[$counting].'" alt="" data-emojis-type="'.$counting.'">';
+        echo'<img id="emojis" onclick="ProccessingLikes(this)" class="emojis-button"  src="'.$emojis_path[$counting].'" alt="" data-main-type="0" data-emojis-type="'.$counting.'">';
     }
+
     ?>
 </div>
 </div>
 
 <script>
-function ProccessingLikes(emojis){
-const getting_data = emojis.getAttribute("data-emojis-type");
-alert(getting_data);
+const elements = document.querySelectorAll(".emojis-button");
+const element_count = elements.length;
 
-}
+document.getElementById("current").innerHTML = "Like";
 
 function current(current_react){
 alert(current_react.innerHTML);
 
+
+
+console.log(getAtr);
 }
+
+
+
+
 </script>
 
 <?php include("layout/footer.php");?>
