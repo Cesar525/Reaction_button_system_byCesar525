@@ -102,9 +102,6 @@ alert(getting_data);
 
 function current(current_react){
 alert(current_react.innerHTML);
-if(current_react.innerHTML == Like){
-document.getElementById("current")innertHTML.appendChild(elements[0]);
-}
 
 }
 </script>
