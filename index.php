@@ -94,6 +94,9 @@ const emojis_path = [
 const default_button = "<img class='emojis-button' src='" + emojis_path[0] + "' alt='nothing'> Like";
 document.getElementById("current").innerHTML = default_button;
 
+
+
+
 </script>
 
 <?php include("layout/footer.php");?>
