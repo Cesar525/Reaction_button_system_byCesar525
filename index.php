@@ -69,14 +69,28 @@ width: 351px;
 <script>
 
 </script>
-
+<?php
+$emojis_path = array(
+"emojis/thumbsup.png",
+"emojis/love.png",
+"emojis/openmouth.png",
+"emojis/angry.png",
+"emojis/laughing.png",
+"emojis/sad.png"
+);
+?>
 
 <div style="background-color:white;padding: 11px;">
 <div class="like-main-container">
     <span style="color:white">You like This and 20 others</span><br><hr>
     <button id="current" onclick="current(this)" style="display:inline-block;" class="like-button like-button-effect"></button>
 <div id="selecting_emoji" class="emojis-container">
+<?php
+for($counting = 0; $counting < count($emojis_path); $counting++){
+    echo '<img onclick="selectingEmo(this)" class="emojis-button" src="'.$emojis_path[$counting].'"  alt="" data-emoji-type="'.$counting.'">';
+}
 
+?>
 </div>
 </div>
 
@@ -97,8 +111,14 @@ const getAtr = data.getAttribute("data-emojis-type");
 console.log(getAtr);
 }
 
-const default_button = "<img class='emojis-button' src='" + emojis_path[0] + "' alt='nothing'> Like";
+const default_button = "<div><img class='emojis-button' style='width:10px;' src='" + emojis_path[0] + "' alt='nothing'><font style='font-size: 10px;margin-left: -9px;'> Like</font>";
 document.getElementById("current").innerHTML = default_button;
+
+function selectingEmo(data){
+const datas = data.getAttribute("data-emoji-type"); 
+    alert(datas);
+}
+
 
 
 
