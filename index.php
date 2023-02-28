@@ -107,10 +107,9 @@ document.getElementById("current").innerHTML = "Like";
 function ProccessingLikes(data){
 const getAtr = data.getAttribute("data-emojis-type");
 
-
-
 console.log(getAtr);
 }
+
 
 
 
