@@ -105,11 +105,11 @@ for($counting = 0; $counting < count($emojis_path); $counting++){ ?>
 ?>
 </div>
 </div>
+<div id="one<?php echo $post_id;?>" style="color:black;">data here</div>
 </div>
 <?php
 };
 ?>
-
 
 <?php include("layout/footer.php");?>
 

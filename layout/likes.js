@@ -13,7 +13,12 @@ const emojis_reaction = [
         const current_reaction = document.getElementById(post_id + "emojiSelection");
        document.getElementById(post_id + "showemojis").innerHTML = emojis_reaction[getting_data];
        // adding reaction
-       $("#one").load("likes_api.php", {name :"cesar"});
+$(document).ready(function(){
+$("#one"+post_id).load("likes_api.php", {new_reaction : getting_data, current_react: current_reaction});
+});
+
+
+       
 
     }
 
