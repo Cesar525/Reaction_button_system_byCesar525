@@ -66,64 +66,50 @@ width: 351px;
 
 </style>
 
-<script>
-
-</script>
 <?php
-$emojis_path = array(
-"emojis/thumbsup.png",
-"emojis/love.png",
-"emojis/openmouth.png",
-"emojis/angry.png",
-"emojis/laughing.png",
-"emojis/sad.png"
-);
-?>
+$emojis_path = [
+    "emojis/thumbsup.png",
+    "emojis/love.png",
+    "emojis/openmouth.png",
+    "emojis/angry.png",
+    "emojis/laughing.png",
+    "emojis/sad.png"
+    ];
 
+$emojis_reaction = array(
+"<div><img class='emojis-button' style='width:10px;' src='emojis/thumbsup.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;'> Like</font></div>",
+"<div><img class='emojis-button' style='width:10px;' src='emojis/love.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;'> Love</font></div>",
+"<div><img class='emojis-button' style='width:10px;' src='emojis/openmouth.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;'> Wow</font></div>",
+"<div><img class='emojis-button' style='width:10px;' src='emojis/angry.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;'> Angry</font></div>" ,
+"<div><img class='emojis-button' style='width:10px;' src='emojis/laughing.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;'> Haha</font></div>",
+"<div><img class='emojis-button' style='width:10px;' src='emojis/sad.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;'> Sad</font></div>"
+);
+
+$amount_of_post = 2;
+for($counting_post = 0; $counting_post < $amount_of_post; $counting_post++){
+$post_id = $counting_post;
+
+?>
 <div style="background-color:white;padding: 11px;">
+    <?php echo $post_id;   ?>
 <div class="like-main-container">
     <span style="color:white">You like This and 20 others</span><br><hr>
-    <button id="current" onclick="current(this)" style="display:inline-block;" class="like-button like-button-effect"></button>
-<div id="selecting_emoji" class="emojis-container">
+    <button id="<?php echo $post_id; ?>showemojis" onclick="current(this, <?php echo $post_id; ?>)" style="display:inline-block;" class="like-button like-button-effect"><?php echo $emojis_reaction[0]; ?></button>
+<div id="<?php echo $post_id; ?>selecting_emoji" class="emojis-container">
 <?php
-for($counting = 0; $counting < count($emojis_path); $counting++){
-    echo '<img onclick="selectingEmo(this)" class="emojis-button" src="'.$emojis_path[$counting].'"  alt="" data-emoji-type="'.$counting.'">';
+for($counting = 0; $counting < count($emojis_path); $counting++){ ?>
+    <img id="<?php echo $post_id; ?>emojiSelection" onclick="addingReaction(this, <?php echo $post_id; ?>)" class="emojis-button" src="<?php echo $emojis_path[$counting]; ?>"  alt="" data-emoji-<?php echo $post_id; ?>="<?php echo $counting; ?>">
+<?php
 }
 
 ?>
 </div>
 </div>
+</div>
+<?php
+};
+?>
 
-<script>
-
-const emojis_path = [
-"emojis/thumbsup.png",
-"emojis/love.png",
-"emojis/openmouth.png",
-"emojis/angry.png",
-"emojis/laughing.png",
-"emojis/sad.png"
-];
-
-function ProccessingLikes(data){
-const getAtr = data.getAttribute("data-emojis-type");
-
-console.log(getAtr);
-}
-
-const default_button = "<div><img class='emojis-button' style='width:10px;' src='" + emojis_path[0] + "' alt='nothing'><font style='font-size: 10px;margin-left: -9px;'> Like</font>";
-document.getElementById("current").innerHTML = default_button;
-
-function selectingEmo(data){
-const datas = data.getAttribute("data-emoji-type"); 
-    alert(datas);
-}
-
-
-
-
-
-</script>
 
 <?php include("layout/footer.php");?>
 
