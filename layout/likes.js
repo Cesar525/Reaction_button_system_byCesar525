@@ -14,18 +14,6 @@ const emojis_reaction = [
        document.getElementById(post_id + "showemojis").innerHTML = emojis_reaction[getting_data];
        // adding reaction
 $(document).ready(function(){
-$("#one"+post_id).load("likes_api.php", {new_reaction : getting_data, current_react: current_reaction});
+$("#one"+post_id).load("likes_api.php", {new_reaction : getting_data});
 });
-
-
-       
-
     }
-
-  function api(){
-    $(document).ready(function(){
-    $("#like").click(function(){
-    
-    });
-    });
-    };
