@@ -8,10 +8,10 @@ include("cesar525/engine/init.php");
 
 <style>
 .like-main-container {
-    background-color: #2e2d2d;
+    background-color: #0d0d0d;
     padding: 11px;
     border-radius: 11px;
-    width: 351px;
+    width: 310px;
 }
 
 .like-button {
@@ -21,10 +21,12 @@ include("cesar525/engine/init.php");
     width: 81px;
     border: solid 1px gray;
     cursor: pointer;
+    border-radius: 11px;
 }
 
 .like-button-effect {
     background-color: black;
+    transition: background-color ease 0.3s;
 }
 
 .like-button-effect:hover {
@@ -42,6 +44,7 @@ include("cesar525/engine/init.php");
     max-width: 400px;
     padding-left: 6px;
     border-radius: 3px;
+    animation: fadeIn 0.3s;
 
 }
 
@@ -69,17 +72,37 @@ include("cesar525/engine/init.php");
     background-color: #35333369;
     cursor: pointer;
 }
+
+.click-to-check-likes{
+    color: #b5b5b5;
+    transition: color ease 0.3s;
+}
+
+.click-to-check-likes:hover{
+    color: #c78e54;
+    cursor:pointer;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0;}
+    100% {opacity: 1;}
+}
 </style>
 
 <?php
-$emojis_path = [
+$emojis_path = array(
     "cesar525/emojis/thumbsup.png",
     "cesar525/emojis/love.png",
     "cesar525/emojis/openmouth.png",
     "cesar525/emojis/angry.png",
     "cesar525/emojis/laughing.png",
     "cesar525/emojis/sad.png"
-    ];
+);
+$example_images = array(
+    "cesar525/imgs/planet.jpg",
+    "cesar525/imgs/moon.jpg"
+);
+
 
 $emojis_reaction = array(
 "<div><img class='emojis-button' style='width:10px;' src='cesar525/emojis/thumbsup.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;'> Like</font></div>",
@@ -93,33 +116,48 @@ $emojis_reaction = array(
 $amount_of_post = 2;
 for($counting_post = 0; $counting_post < $amount_of_post; $counting_post++){
 $post_id = $counting_post;
-
+$user_id = 132;
 ?>
-<div style="background-color:white;padding: 11px;">
-    <?php echo $post_id;   ?>
-    <div class="like-main-container">
-        <span style="color:white">You like This and 20 others</span><br>
-        <hr>
+<div>
+<div style="margin: 0 auto;width: 360px;background-color: #ff000000;">
+<font color="white"><?php echo 'Post = '.$post_id;   ?></font>
 
-        <button id="<?php echo $post_id; ?>showemojis" onclick="current(this, <?php echo $post_id; ?>)"
-            style="display:inline-block;" class="like-button like-button-effect"
-            data-current-<?php echo $post_id;?>="2"><?php echo $emojis_reaction[0]; ?></button>
 
-        <div id="<?php echo $post_id; ?>selecting_emoji" class="emojis-container">
-            <?php
+
+<div style="background-color: #1c1c1c;padding: 11px;border: solid 1px #575757;border-radius: 14px;margin-bottom: 11px;width: 341px;">
+   <center><img style="width: 241px;" src="<?php echo $example_images[$post_id]; ?>" alt="">   </center>
+
+<hr style="width: 339px;border: 1px solid #454444;">
+    
+    
+
+        <div class="like-main-container">
+            <button id="<?php echo $post_id; ?>showemojis" onclick="current(this, <?php echo $post_id; ?>)"
+                style="display:inline-block;" class="like-button like-button-effect"
+                data-current-<?php echo $post_id;?>="2"><?php echo $emojis_reaction[0]; ?></button>
+
+            <div id="<?php echo $post_id; ?>selecting_emoji" class="emojis-container">
+                <?php
 for($counting = 0; $counting < count($emojis_path); $counting++){ ?>
-            <img id="<?php echo $post_id; ?>emojiSelection" onclick="addingReaction(this, <?php echo $post_id; ?>)"
-                class="emojis-button" src="<?php echo $emojis_path[$counting]; ?>" alt=""
-                data-emoji-<?php echo $post_id; ?>="<?php echo $counting; ?>">
-            <?php
+                <!-- image -->
+                
+                    <img id="<?php echo $post_id; ?>emojiSelection" onclick="addingReaction(this, <?php echo $post_id; ?>)"
+                    class="emojis-button" src="<?php echo $emojis_path[$counting]; ?>" alt=""
+                    data-emoji-<?php echo $post_id; ?>="<?php echo $counting; ?>">
+                <?php
 }
 ?>
+            </div>
+            <!-- //counting reactions -->
+            &nbsp; <span class="click-to-check-likes">You like This and 20 others</span>
+            
+            
+            <!-- result data show here -->
         </div>
+        <div id="one<?php echo $post_id;?>" >data here</div>
     </div>
-    <div id="one<?php echo $post_id;?>" style="color:black;">data here</div>
-</div>
-<?php
+    <?php
 };
 ?>
-
-<?php include("layout/footer.php");?>
+</div>
+<?php include("cesar525/footer.php");?>
