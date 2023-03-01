@@ -1,8 +1,8 @@
 body{
-    background-color:black;
+    background-color:rgb(47, 47, 47);
 }
 .body_header{
-    background-color:black;
+    background-color:rgb(50, 50, 50);
     margin: 0 auto;
     width: 1284.5px;
 }

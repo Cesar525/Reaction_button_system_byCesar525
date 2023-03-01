@@ -1,4 +1,8 @@
 <?php
+include("cesar525/engine/init.php");
+
+
+
 
 echo 'Processing'. $_POST['new_reaction'];
 
