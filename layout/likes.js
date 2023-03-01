@@ -17,3 +17,8 @@ $(document).ready(function(){
 $("#one"+post_id).load("likes_api.php", {new_reaction : getting_data});
 });
     }
+
+    function current(data, post_id){
+        var datas = data.innerHTML;
+        alert(datas);
+    } 

@@ -95,13 +95,13 @@ $post_id = $counting_post;
 <div class="like-main-container">
     <span style="color:white">You like This and 20 others</span><br><hr>
     <button id="<?php echo $post_id; ?>showemojis" onclick="current(this, <?php echo $post_id; ?>)" style="display:inline-block;" class="like-button like-button-effect"><?php echo $emojis_reaction[0]; ?></button>
-<div id="<?php echo $post_id; ?>selecting_emoji" class="emojis-container">
+
+    <div id="<?php echo $post_id; ?>selecting_emoji" class="emojis-container">
 <?php
 for($counting = 0; $counting < count($emojis_path); $counting++){ ?>
     <img id="<?php echo $post_id; ?>emojiSelection" onclick="addingReaction(this, <?php echo $post_id; ?>)" class="emojis-button" src="<?php echo $emojis_path[$counting]; ?>"  alt="" data-emoji-<?php echo $post_id; ?>="<?php echo $counting; ?>">
 <?php
 }
-
 ?>
 </div>
 </div>

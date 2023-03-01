@@ -1,6 +1,6 @@
 <?php
 
-echo 'Processing';
+echo 'Processing'. $_POST['new_reaction'];
 
 
 //variables
