@@ -10,19 +10,35 @@ const emojis_reaction = [
     
 
     function addingReaction(data, post_id){
-        var getting_data = data.getAttribute("data-emoji-" + post_id);
+        var default_reaction = 0;
+        var new_emoji_react = data.getAttribute("data-emoji-" + post_id);
         var user_id = data.getAttribute("data-user-id");
-        const current_reaction = document.getElementById(post_id + "emojiSelection");
-       document.getElementById(post_id + "showemojis").innerHTML = emojis_reaction[getting_data];
-    
-       // adding reaction
+        var current_reaction = data.getAttribute("data-current-" + post_id);
+        document.getElementById(post_id + "showemojis").innerHTML = emojis_reaction[new_emoji_react];
+        alert(default_reaction +'='+ current_reaction);
+       
+//adding reaction
+    if(current_reaction != new_emoji_react){
 $(document).ready(function(){
-$("#one"+post_id).load("likes_api.php", {new_reaction : getting_data,
+$("#one"+post_id).load("likes_api.php", {new_reaction : new_emoji_react,
                                         user_ids : user_id, post_ids : post_id });
-});
-    }
+});}else{
 
-    function current(data, post_id){
-        var datas = data.getAttribute("data-current-" + post_id);
-        alert(datas);
-    } 
+}
+
+}
+    
+function current(data, post_id){
+    var current_posted_reaction = data.getAttribute("data-current-" + post_id);
+
+    alert(current_posted_reaction);
+} 
+function unlike(){
+    $(document).ready(function(){
+        $("#one"+post_id).load("likes_api.php", {new_reaction : new_emoji_react,
+                                                user_ids : user_id, 
+                                                post_ids : post_id,
+                                                unlike : "unlike_key"});
+        });
+}
+    
