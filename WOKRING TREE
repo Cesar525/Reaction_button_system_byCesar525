@@ -1,0 +1,6 @@
+Working on --
+1) adding post to sql
+2) adding like on the default
+3) clicking on the same like will cancel the like
+4) like count "you and 20 people reacted to this" ect.. if you didnt like it then say "20 people reacted to this"
+5) when you click on the reactions a modal window should pop up from the top and show all the reactions from people with user_names on the side.
