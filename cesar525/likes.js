@@ -22,14 +22,20 @@ const emojis_reaction = [
     if(getcurrent_react != new_emoji_react){ 
         console.log("adding new reeaction// Deleting the old reaction");
         document.getElementById(post_id + "showemojis").innerHTML = emojis_reaction[new_emoji_react];
-       // addingreactions(new_emoji_react, user_id, post_id);
+
+       addingreactions(new_emoji_react, user_id, post_id);
     }else{
             console.log("delete react// setup the default react");
             document.getElementById(post_id + "showemojis").innerHTML = emojis_reaction[0];
         }
     };
 
-    
+    function changeCurrent(data, post_id){
+        var getReactNumber = data.getAttribute(post_id);
+        alert(getReactNumber);
+    }
+
+
 function addingreactions(new_reaction_, user_id_, post_id_){
     $(document).ready(function(){
         $("#one"+post_id_).load("likes_api.php", {new_reaction : new_reaction_ ,
@@ -37,3 +43,12 @@ function addingreactions(new_reaction_, user_id_, post_id_){
                                                 post_ids : post_id_ });
         });
     };
+
+function deleteReation(user_id_, post_id_){
+$(document).ready(function(){
+    $("#one" + post_id_).load("likes_api.php", {user_ids : user_id_,
+                                                post_ids : post_id_,
+                                                deletion_key : "deleting_reaction"});
+});
+}
+

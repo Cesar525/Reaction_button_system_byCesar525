@@ -149,18 +149,19 @@ $current_react = $row_likes['like_type'];
 
             <hr style="width: 339px;border: 1px solid #454444;">
             <div class="like-main-container">
-                <button id="<?php echo $post_id; ?>showemojis" onclick="current(this, <?php echo $post_id; ?>)"
+                <button id="<?php echo $post_id; ?>showemojis" onclick="changeCurrent(this, <?php echo $post_id; ?>)"
                     style="display:inline-block;" class="like-button like-button-effect"
                     data-current-<?php echo $post_id;?>="<?php echo $current_react; ?>"><?php echo $emojis_reaction[$current_react]; ?></button>
 <!-- emojis selection -->
 <div id="<?php echo $post_id; ?>selecting_emoji" class="emojis-container">
 <?php
-for($counting = 1; $counting < count($emojis_path); $counting++){ ?>
+for($counting = 1; $counting < count($emojis_path); $counting++){ 
+    ?>
 <img id="<?php echo $post_id; ?>emojiSelection"
 onclick="reactionProccessing(this, <?php echo $post_id; ?>)" data-user-id="<?php echo $user_id;?>" class="emojis-button"
 src="<?php echo $emojis_path[$counting]; ?>" alt=""
 data-emoji-<?php echo $post_id; ?>="<?php echo $counting; ?>" data-current-emoji="<?php echo $current_react; ?>">
-<?php } ?>
+<?php }?>
 </div>
                 <!-- //counting reactions -->
                 &nbsp; <span class="click-to-check-likes">You like This and 20 others</span>

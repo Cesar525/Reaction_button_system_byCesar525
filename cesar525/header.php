@@ -9,7 +9,7 @@
     <meta name="author" content="Cesar">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Web tittle</title>
-    <link rel="icon" type="image/x-icon" href="layout/img/logo.png">
+    <link rel="icon" type="image/x-icon" href="cesar525/imgs/logo.png">
     <link rel="stylesheet" href="cesar525/style.css">
     <script
   src="https://code.jquery.com/jquery-3.6.3.min.js"
