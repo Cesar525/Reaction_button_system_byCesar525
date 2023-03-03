@@ -151,13 +151,13 @@ $current_react = $row_likes['like_type'];
             <div class="like-main-container">
                 <button id="<?php echo $post_id; ?>showemojis" onclick="current(this, <?php echo $post_id; ?>)"
                     style="display:inline-block;" class="like-button like-button-effect"
-                    data-current-<?php echo $post_id;?>="<?php echo $current_react ?>"><?php echo $emojis_reaction[$current_react]; ?></button>
+                    data-current-<?php echo $post_id;?>="<?php echo $current_react; ?>"><?php echo $emojis_reaction[$current_react]; ?></button>
 <!-- emojis selection -->
 <div id="<?php echo $post_id; ?>selecting_emoji" class="emojis-container">
 <?php
 for($counting = 1; $counting < count($emojis_path); $counting++){ ?>
 <img id="<?php echo $post_id; ?>emojiSelection"
-onclick="addingReaction(this, <?php echo $post_id; ?>)" data-user-id="<?php echo $user_id;?>" class="emojis-button"
+onclick="reactionProccessing(this, <?php echo $post_id; ?>)" data-user-id="<?php echo $user_id;?>" class="emojis-button"
 src="<?php echo $emojis_path[$counting]; ?>" alt=""
 data-emoji-<?php echo $post_id; ?>="<?php echo $counting; ?>" data-current-emoji="<?php echo $current_react; ?>">
 <?php } ?>
