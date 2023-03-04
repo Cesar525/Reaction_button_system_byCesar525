@@ -128,7 +128,7 @@ $user_id = 132;
 <div>
     <div style="margin: 0 auto;width: 360px;background-color: #ff000000;">
         <font color="white"><?php echo 'Post = '.$post_id;   ?></font>
-<?php
+        <?php
 // checking for likes
 $result_checking = query ("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE like_by_user_id='$user_id' AND like_post_id='$post_id'", $conn);
 if($result_checking){
@@ -152,17 +152,19 @@ $current_react = $row_likes['like_type'];
                 <button id="<?php echo $post_id; ?>showemojis" onclick="changeCurrent(this, <?php echo $post_id; ?>)"
                     style="display:inline-block;" class="like-button like-button-effect"
                     data-current-<?php echo $post_id;?>="<?php echo $current_react; ?>"><?php echo $emojis_reaction[$current_react]; ?></button>
-<!-- emojis selection -->
-<div id="<?php echo $post_id; ?>selecting_emoji" class="emojis-container">
-<?php
+
+
+                <!-- emojis selection -->
+                <div id="<?php echo $post_id; ?>selecting_emoji" class="emojis-container">
+                    <?php
 for($counting = 1; $counting < count($emojis_path); $counting++){ 
     ?>
-<img id="<?php echo $post_id; ?>emojiSelection"
-onclick="reactionProccessing(this, <?php echo $post_id; ?>)" data-user-id="<?php echo $user_id;?>" class="emojis-button"
-src="<?php echo $emojis_path[$counting]; ?>" alt=""
-data-emoji-<?php echo $post_id; ?>="<?php echo $counting; ?>" data-current-emoji="<?php echo $current_react; ?>">
-<?php }?>
-</div>
+                    <img id="<?php echo $post_id; ?>emojiSelection" onclick="reactionProccessing(this)"
+                        data-user-id="<?php echo $user_id;?>" class="emojis-button"
+                        src="<?php echo $emojis_path[$counting]; ?>" alt="" data-emoji-type="<?php echo $counting; ?>"
+                        data-current-emoji="<?php echo $current_react; ?>">
+                    <?php }?>
+                </div>
                 <!-- //counting reactions -->
                 &nbsp; <span class="click-to-check-likes">You like This and 20 others</span>
 
