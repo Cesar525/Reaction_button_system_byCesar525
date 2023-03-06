@@ -110,7 +110,14 @@ $example_images = array(
 );
 
 $emojis_path = [
-"cesar525/emojis/thumbsup.png"
+"cesar525/emojis/thumbsup.png",
+"cesar525/emojis/thumbsup.png",
+"cesar525/emojis/love.png",
+"cesar525/emojis/openmouth.png",
+"cesar525/emojis/angry.png",
+"cesar525/emojis/laughing.png",
+"cesar525/emojis/sad.png",
+
 
 ];
 
