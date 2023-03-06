@@ -1,0 +1,105 @@
+.like-main-container {
+    background-color: #0d0d0d;
+    padding: 11px;
+    border-radius: 11px;
+    width: 310px;
+}
+
+.like-button {
+
+    color: white;
+    padding: 4px;
+    width: 81px;
+    border: solid 1px gray;
+    cursor: pointer;
+    border-radius: 11px;
+}
+
+.like-button-effect {
+    background-color: black;
+    transition: background-color ease 0.3s;
+}
+
+.like-button-effect:hover {
+    background-color: #3e3b3b;
+}
+
+.emojis-container {
+    display: none;
+    color: red;
+    background-color: #666666;
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid gray;
+    position: absolute;
+    max-width: 400px;
+    padding-left: 6px;
+    border-radius: 3px;
+    animation: fadeIn 0.3s;
+    max-width: 227px;
+
+}
+
+.emojis-container:hover {
+    display: block;
+}
+
+.like-button:hover+.emojis-container {
+    display: block;
+}
+
+.emojis-button {
+    padding: 3px;
+    width: 21px;
+    margin-bottom: -4px;
+    margin-left: -2px;
+    border: solid 1px #6d6d6d00;
+    margin-right: 6px;
+    border-radius: 9px;
+    background-color: transparent;
+    transition: background-color ease 0.3s;
+}
+
+.emojis-button:hover {
+    background-color: #35333369;
+    cursor: pointer;
+}
+
+.click-to-check-likes {
+    color: #b5b5b5;
+    transition: color ease 0.3s;
+}
+
+.click-to-check-likes:hover {
+    color: #c78e54;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.glow_liked {
+    
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 30px #e60073, 0 0 30px #e60073;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 30px #ff4da6;
+    }
+  }
