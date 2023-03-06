@@ -127,7 +127,7 @@ $emojis_path = [
 <?php  
         
         $user_id = 123;
-        $post_count = 2;
+        $post_count = 3;
         for($counting_post = 0; $counting_post < $post_count; $counting_post++){
             $post_id = $counting_post;
 //Checking for reactions
@@ -145,9 +145,10 @@ if($checking_react){
     <hr style="width: 339px;border: 1px solid #454444;">
 
     <div class="like-main-container">
+        <!-- showing emijs -->
         <button id="showemojis<?php echo $post_id;?>" onclick="likeUnlike()" style="display:inline-block;"
-            class="like-button like-button-effect" data-emoji-set="?">
-           <?php echo $emojis_reaction[$current]; ?>
+            class="like-button like-button-effect">
+           <?php// echo $emojis_reaction[$current]; ?>
             <div id="one<?php echo $post_id;?>"></div>
         </button>
 
@@ -160,7 +161,7 @@ if($checking_react){
                             onclick="reactionProccess(this, '. $post_id .', '.$user_id.')" 
                             src="'.$emojis_path[$counting_emojis].'" 
                             alt=""
-                            data-emoji-type="'.$counting_emojis.'">';
+                            data-emoji-'.$post_id.'="'.$counting_emojis.'">';
             }
                 ?>
             <!-- <img class="emojis-button" src="" alt=""> -->

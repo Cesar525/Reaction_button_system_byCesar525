@@ -26,7 +26,7 @@ const getCurrent = document.getElementById("showemojis").innerHTML;
 
 
 function  reactionProccess(data, post_id, user_id){
-    const getReactionNumber = data.getAttribute("data-emoji-type");
+    const getReactionNumber = data.getAttribute("data-emoji-" + post_id);
 document.getElementById("showemojis" + post_id).innerHTML = emojis_reaction_design[getReactionNumber];
 $("#one" + post_id).load("likes_api.php", { new_reaction : getReactionNumber,
                                 post_ids : post_id,
