@@ -3,6 +3,8 @@ include("cesar525/header.php");
 include("cesar525/engine/init.php");
 
 ?>
+
+
 <style>
 .like-main-container {
     background-color: #0d0d0d;
@@ -31,7 +33,7 @@ include("cesar525/engine/init.php");
 }
 
 .emojis-container {
-    display: block;
+    display: none;
     color: red;
     background-color: #666666;
     width: fit-content;
@@ -42,7 +44,7 @@ include("cesar525/engine/init.php");
     padding-left: 6px;
     border-radius: 3px;
     animation: fadeIn 0.3s;
-    width: 225px;
+    width: 198px;
 
 }
 
@@ -93,53 +95,78 @@ include("cesar525/engine/init.php");
 </style>
 
 <?php
-$emojis_path = array(
-    "cesar525/emojis/thumbsup.png",
-    "cesar525/emojis/thumbsup.png",
-    "cesar525/emojis/love.png",
-    "cesar525/emojis/openmouth.png",
-    "cesar525/emojis/angry.png",
-    "cesar525/emojis/laughing.png",
-    "cesar525/emojis/sad.png"
-);
+$emojis_reaction = [
+    "<div><img class='emojis-button' style='width:10px;' src='cesar525/emojis/thumbsup.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;'> Like</font></div>",
+    "<div><img class='emojis-button' style='width:10px;' src='cesar525/emojis/thumbsup.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;color: #6969ff;'> Liked</font></div>",
+"<div><img class='emojis-button' style='width:10px;' src='cesar525/emojis/love.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;'> Love</font></div>",
+   "<div><img class='emojis-button' style='width:10px;' src='cesar525/emojis/openmouth.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;color: #dfdf7f;'> Wow</font></div>",
+"<div><img class='emojis-button' style='width:10px;' src='cesar525/emojis/angry.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;color: #ff5e5e;'> Angry</font></div>" ,
+   "<div><img class='emojis-button' style='width:10px;' src='cesar525/emojis/laughing.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;color: #dfdf7f;'> Haha</font></div>",
+    "<div><img class='emojis-button' style='width:10px;' src='cesar525/emojis/sad.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;'> Sad</font></div>"
+];
 $example_images = array(
     "cesar525/imgs/planet.jpg",
     "cesar525/imgs/moon.jpg"
 );
 
-$amount_of_post = 2;
-for($counting_post = 0; $counting_post < $amount_of_post; $counting_post++) {
-$post_id = $counting_post;
-$user_id = 132;
+$emojis_path = [
+"cesar525/emojis/thumbsup.png"
+
+];
+
+
 ?>
-<div>
-    <div style="margin: 0 auto;width: 360px;background-color: #ff000000;">
-        <font color="white"><?php echo 'Post = '.$post_id;  ?></font>
 
-        <div
-            style="background-color: #1c1c1c;padding: 11px;border: solid 1px #575757;border-radius: 14px;margin-bottom: 11px;width: 341px;">
+<?php  
+        
+        $user_id = 123;
+        $post_count = 2;
+        for($counting_post = 0; $counting_post < $post_count; $counting_post++){
+            $post_id = $counting_post;
+//Checking for reactions
+$checking_react = query("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE like_by_user_id='$user_id' AND like_post_id='$post_id'", $conn);
+if($checking_react){
+    $row = mysqli_fetch_assoc($checking_react);
+    $current = $row['like_type'];
+}else{
+    echo 'not working';
+}
+        ?>
+<div
+    style="background-color: #1c1c1c;padding: 11px;border: solid 1px #575757;border-radius: 14px;margin-bottom: 11px;width: 341px;">
 
-            <hr style="width: 339px;border: 1px solid #454444;">
+    <hr style="width: 339px;border: 1px solid #454444;">
 
-            <div class="like-main-container">
-                <button id="<?php echo $post_id; ?>showemojis" onclick="changeCurrent(this)"
-                    style="display:inline-block;" class="like-button like-button-effect"
-                    data-emoji-set="?">Like</button>
-
-
-                <!-- emojis selection -->
-                <div id="selectingContainer" class="emojis-container">
-                    <img class="emojis-button" src="<?php echo $emojis_path[1];?>" alt="">
-                </div>
-
-                <!-- //counting reactions -->
-                &nbsp; <span class="click-to-check-likes">You like This and 20 others</span>
+    <div class="like-main-container">
+        <button id="showemojis<?php echo $post_id;?>" onclick="likeUnlike()" style="display:inline-block;"
+            class="like-button like-button-effect" data-emoji-set="?">
+           <?php echo $emojis_reaction[$current]; ?>
+            <div id="one<?php echo $post_id;?>"></div>
+        </button>
 
 
-                <!-- result data show here -->
-            </div>
-            <div>data here</div>
+        <!-- emojis selection -->
+        <div id="selectingContainer" class="emojis-container">
+            <?php for($counting_emojis = 1; $counting_emojis < count($emojis_path); $counting_emojis++){ 
+                echo '<img  id="emojis-images"
+                            class="emojis-button"
+                            onclick="reactionProccess(this, '. $post_id .', '.$user_id.')" 
+                            src="'.$emojis_path[$counting_emojis].'" 
+                            alt=""
+                            data-emoji-type="'.$counting_emojis.'">';
+            }
+                ?>
+            <!-- <img class="emojis-button" src="" alt=""> -->
+
         </div>
+
+        <!-- //counting reactions -->
+        &nbsp; <span class="click-to-check-likes">You like This and 20 others</span>
+
+
+        <!-- result data show here -->
     </div>
-<?php }; ?>
-    <?php include("cesar525/footer.php");?>
+</div>
+
+<?php } ?>
+<?php include("cesar525/footer.php");?>

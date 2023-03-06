@@ -1,7 +1,18 @@
 <?php
 include("cesar525/engine/init.php");
 
+echo 'Hello';
 if($_SERVER['REQUEST_METHOD'] == "POST"){
+$emojis_reaction_design = [
+     "<div><img class='emojis-button' style='width:10px;' src='cesar525/emojis/thumbsup.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;'> Like</font></div>",
+     "<div><img class='emojis-button' style='width:10px;' src='cesar525/emojis/thumbsup.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;color: #6969ff;'> Liked</font></div>",
+ "<div><img class='emojis-button' style='width:10px;' src='cesar525/emojis/love.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;'> Love</font></div>",
+    "<div><img class='emojis-button' style='width:10px;' src='cesar525/emojis/openmouth.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;color: #dfdf7f;'> Wow</font></div>",
+ "<div><img class='emojis-button' style='width:10px;' src='cesar525/emojis/angry.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;color: #ff5e5e;'> Angry</font></div>" ,
+    "<div><img class='emojis-button' style='width:10px;' src='cesar525/emojis/laughing.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;color: #dfdf7f;'> Haha</font></div>",
+     "<div><img class='emojis-button' style='width:10px;' src='cesar525/emojis/sad.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;'> Sad</font></div>"
+];
+
 
     //Here we adding a like and if there is alike alrady this wil delete the like and add anew one.
 if(isset($_POST['new_reaction'], $_POST['user_ids'], $_POST['post_ids'])){
@@ -38,6 +49,7 @@ $result_like_insert = query("INSERT INTO likes_storage (like_type, like_by_user_
                                                 VALUES ('$react_type', '$react_made_by', '$reacted_object_id')", $conn);;
 if($result_like_insert){
     echo'INSERTED!';
+    echo $emojis_reaction_design[$react_type];
 }else{
     echo 'ERROR';
 }
