@@ -9,4 +9,17 @@ function query($sql, $conn){
     }
 }
 
+function countingPostReactions($post_id, $conn){
+    $coutning_total_react = query("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE  like_post_id='$post_id'", $conn);
+if($coutning_total_react){
+    if(mysqli_num_rows($coutning_total_react) == 0){
+        $react_count = 0;
+        echo 'its zero';
+    }else{
+        $num_rows = mysqli_num_rows($coutning_total_react);
+       return $num_rows;
+    }
+}
+}
+
 ?>

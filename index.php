@@ -37,18 +37,10 @@ $emojis_path = [
 
 <?php  
         
-        $user_id = 123;
+        
         $post_count = 3;
         for($counting_post = 0; $counting_post < $post_count; $counting_post++){
-            $post_id = $counting_post;
-//Checking for reactions
-$checking_react = query("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE like_by_user_id='$user_id' AND like_post_id='$post_id'", $conn);
-if($checking_react){
-    $row = mysqli_fetch_assoc($checking_react);
-    $current = $row['like_type'];
-}else{
-    echo 'not working';
-}
+            include("cesar525/sql_checking.php");
         ?>
 <div
     style="background-color: #1c1c1c;padding: 11px;border: solid 1px #575757;border-radius: 14px;margin-bottom: 11px;width: 341px;">
@@ -57,14 +49,14 @@ if($checking_react){
 
     <div class="like-main-container">
         <!-- showing emijs -->
-        <button id="showemojis<?php echo $post_id;?>" onclick="likeUnlike()" style="display:inline-block;"
+        <button id="showemojis<?php echo $post_id;?>" onclick="clickingToDelete(<?php echo $post_id;?> , <?php echo $user_id; ?>)" style="display:inline-block;"
             class="like-button like-button-effect">
            <?php echo $emojis_reaction[$current]; ?>
         </button>
 
 
         <!-- emojis selection -->
-        <div id="selectingContainer" class="emojis-container">
+        <div id="selectingContainer" onclick="closeOnClick()" class="emojis-container">
             <?php for($counting_emojis = 1; $counting_emojis < count($emojis_path); $counting_emojis++){ 
                 echo '<img  id="emojis-images"
                             class="emojis-button"
@@ -79,7 +71,7 @@ if($checking_react){
         </div>
 
         <!-- //counting reactions -->
-        &nbsp; <span class="click-to-check-likes">You like This and 20 others</span>
+        &nbsp; <span class="click-to-check-likes"><?php echo $reacted_to_this; ?></span>
 
 
         <!-- result data show here -->

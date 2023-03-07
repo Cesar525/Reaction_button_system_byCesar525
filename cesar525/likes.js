@@ -19,11 +19,20 @@ const emojis_reaction_design = {
     };
     
 
-function like(){
-const getCurrent = document.getElementById("showemojis").innerHTML;
+function clickingToDelete(post_id, user_id){
+const get_default_react = emojis_reaction_design['0'];
+//set button to default
+document.getElementById("showemojis" + post_id).innerHTML = get_default_react;
+//deleting reaction
+$("#one" + post_id).load("likes_api.php", { post_ids : post_id,
+                                                user_ids : user_id,
+                                                key_deleting : "deleting"});
 
+};
+function closeOnClick(){
+    document.getElementById("selectingContainer").style.display = "none";
+   
 }
-
 
 function  reactionProccess(data, post_id, user_id){
     const getReactionNumber = data.getAttribute("data-emoji-" + post_id);

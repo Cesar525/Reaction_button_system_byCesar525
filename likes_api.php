@@ -56,6 +56,31 @@ if($result_like_insert){
 
 }
 
+if(isset($_POST['user_ids'], $_POST['post_ids'], $_POST['key_deleting'])){
+    //set variables
+    echo '<br>entered'; 
+    $post_id_deleting  = $_POST['post_ids'];
+    $user_id = $_POST['user_ids'];
+    $keyToDelete = $_POST['key_deleting']; 
+    
+    
+    //key to deleting
+    if($keyToDelete === "deleting"){
+$deleting_like = query("DELETE FROM likes_storage WHERE like_by_user_id='$user_id' AND like_post_id='$post_id_deleting'", $conn);
+if($deleting_like){
+echo 'SQL working like has been deleted';
+}else{
+
+    echo'Error deleting the sql';
+}
+
+
+    }
+}
+
+
+
+
 }else{
 echo 'Ops!! Error';
 }
