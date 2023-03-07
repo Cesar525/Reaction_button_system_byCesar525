@@ -38,7 +38,7 @@ $emojis_path = [
 <?php  
         
         
-        $post_count = 3;
+        $post_count = 6;
         for($counting_post = 0; $counting_post < $post_count; $counting_post++){
             include("cesar525/sql_checking.php");
         ?>
@@ -71,7 +71,7 @@ $emojis_path = [
         </div>
 
         <!-- //counting reactions -->
-        &nbsp; <span class="click-to-check-likes"><?php echo $reacted_to_this; ?></span>
+        &nbsp; <span class="click-to-check-likes"><?php echo likeMessage($post_id, $user_id, $conn); ?></span>
 
 
         <!-- result data show here -->
