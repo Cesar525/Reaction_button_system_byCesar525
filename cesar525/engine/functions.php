@@ -26,7 +26,7 @@ if($coutning_total_react){
 // this function need more work 
 function likeMessage($user_id, $post_id, $count){
     if(true){ // you and others react to it
-echo 'You and '.$count.' others reacted this. ';
+echo 'You and '.$count.' others reacted this.';
     }
     if(true){ // others react toit but you
     echo $count. 'people reacted to this.';
