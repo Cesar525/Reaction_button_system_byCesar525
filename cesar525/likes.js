@@ -18,7 +18,7 @@ const emojis_reaction_design = {
     "6" : "<div><img class='emojis-button' style='width:10px;' src='cesar525/emojis/sad.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;'> Sad</font></div>" // 6
     };
    
-const buttons = querySelectorAll("[data-post-id='2']");
+
    
  function mouseovershow(post_id){ 
    document.getElementById("selectingContainer" + post_id).style.display = "block";
@@ -52,5 +52,4 @@ document.getElementById("showemojis" + post_id).innerHTML = emojis_reaction_desi
 $("#one" + post_id).load("likes_api.php", { new_reaction : getReactionNumber,
                                 post_ids : post_id,
                             user_ids : user_id});
-
 };

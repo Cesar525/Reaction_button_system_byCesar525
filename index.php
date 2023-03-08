@@ -19,7 +19,7 @@ $example_images = array(
     "cesar525/imgs/planet.jpg",
     "cesar525/imgs/moon.jpg"
 );
-
+// emojis downloaded at https://getemoji.com/
 $emojis_path = [
 "cesar525/emojis/thumbsup.png",
 "cesar525/emojis/thumbsup.png",
