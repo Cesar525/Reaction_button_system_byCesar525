@@ -39,6 +39,9 @@ document.getElementById("showemojis" + post_id).innerHTML = get_default_react;
 $("#one" + post_id).load("likes_api.php", { post_ids : post_id,
                                                 user_ids : user_id,
                                                 key_deleting : "deleting"});
+$("#like_message" + post_id).load("likes_api.php", {load_message: "key",
+                                            user_ids : user_id,
+                                        post_ids : post_id });
 
 };
 function closeOnClick(post_id){
@@ -46,10 +49,15 @@ function closeOnClick(post_id){
     
 }
 
+
 function  reactionProccess(data, post_id, user_id){
     const getReactionNumber = data.getAttribute("data-emoji-" + post_id);
 document.getElementById("showemojis" + post_id).innerHTML = emojis_reaction_design[getReactionNumber];
 $("#one" + post_id).load("likes_api.php", { new_reaction : getReactionNumber,
                                 post_ids : post_id,
                             user_ids : user_id});
+$("#like_message" + post_id).load("likes_api.php", {load_message: "key",
+                                            user_ids : user_id,
+                                        post_ids : post_id });
+
 };

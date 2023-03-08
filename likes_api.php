@@ -1,7 +1,7 @@
 <?php
 include("cesar525/engine/init.php");
 
-echo 'Hello';
+
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 $emojis_reaction_design = [
      "<div><img class='emojis-button' style='width:10px;' src='cesar525/emojis/thumbsup.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;'> Like</font></div>",
@@ -26,7 +26,7 @@ $react_made_by = $_POST['user_ids']; // id of user that posted the reaction
 $checking_for_likes = query("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE like_by_user_id='$react_made_by' AND like_post_id='$reacted_object_id'", $conn);
 $like_found = false;
 if($checking_for_likes){
-    echo 'working';
+   // echo 'working';
     if(mysqli_num_rows($checking_for_likes) > 0){
         $like_found = true;
         // if there is more like than ziro then it will be dleted.
@@ -35,9 +35,9 @@ if($like_found){
     // here is like where found it will deleted
     $deleting_like = query("DELETE FROM likes_storage WHERE like_by_user_id='$react_made_by' AND like_post_id='$reacted_object_id'", $conn);
     if($deleting_like){
-     echo 'Deleting Succes';
+    // echo 'Deleting Succes';
     }else{
-     echo 'Deleting not success';
+   //  echo 'Deleting not success';
         }
     }   
 }else{
@@ -48,10 +48,10 @@ if($like_found){
 $result_like_insert = query("INSERT INTO likes_storage (like_type, like_by_user_id, like_post_id) 
                                                 VALUES ('$react_type', '$react_made_by', '$reacted_object_id')", $conn);;
 if($result_like_insert){
-    echo'INSERTED!';
-    echo $emojis_reaction_design[$react_type];
+   // echo'INSERTED!';
+    //echo $emojis_reaction_design[$react_type];
 }else{
-    echo 'ERROR';
+   // echo 'ERROR';
 }
 
 }
@@ -68,17 +68,24 @@ if(isset($_POST['user_ids'], $_POST['post_ids'], $_POST['key_deleting'])){
     if($keyToDelete === "deleting"){
 $deleting_like = query("DELETE FROM likes_storage WHERE like_by_user_id='$user_id' AND like_post_id='$post_id_deleting'", $conn);
 if($deleting_like){
-echo 'SQL working like has been deleted';
+//echo 'SQL working like has been deleted';
 }else{
 
-    echo'Error deleting the sql';
+ //  echo'Error deleting the sql';
 }
 
 
     }
 }
 
+if(isset($_POST['load_message'], $_POST['user_ids'], $_POST['post_ids'])){
+    if($_POST['load_message'] == "key"){
+$user_id = $_POST['user_ids'];
+$post_id = $_POST['post_ids'];
+        echo likeMessage($post_id, $user_id, $conn);
 
+    }
+}
 
 
 }else{

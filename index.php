@@ -36,13 +36,14 @@ $emojis_path = [
         
         
         $post_count = 6;
-        for($counting_post = 0; $counting_post < $post_count; $counting_post++){
-            include("cesar525/sql_checking.php");
+        for($counting_post = 0; $counting_post < $post_count; $counting_post++){// while loop
+        include("cesar525/sql_checking.php"); 
             ?>
-<div
+<!-- <div
     style="background-color: #1c1c1c;padding: 11px;border: solid 1px #575757;border-radius: 14px;margin-bottom: 11px;width: 341px;">
+    <hr style="width: 339px;border: 1px solid #454444;"> -->
+   <!-- //CONTENT STARTS HERE ########################## -->
 
-    <hr style="width: 339px;border: 1px solid #454444;">
 
     <div class="like-main-container">
         <!-- showing emijs -->
@@ -51,8 +52,6 @@ $emojis_path = [
             data-post-id="<?php echo $post_id;?>">
            <?php echo $emojis_reaction[$current]; ?>
         </button>
-
-
         <!-- emojis selection -->
         <div id="selectingContainer<?php echo $post_id;?>" onmouseout="emojiWindowMouseOut(<?php echo $post_id;?>)" onmouseover="mouseovershow(<?php echo $post_id;?>);" onclick="closeOnClick(<?php echo $post_id;?>);" class="emojis-container">
             <?php for($counting_emojis = 1; $counting_emojis < count($emojis_path); $counting_emojis++){ 
@@ -65,18 +64,17 @@ $emojis_path = [
             }
                 ?>
             <!-- <img class="emojis-button" src="" alt=""> -->
-
         </div>
-
         <!-- //counting reactions -->
-        &nbsp; <span class="click-to-check-likes"><?php echo likeMessage($post_id, $user_id, $conn); ?></span>
-
+        &nbsp; <span id="like_message<?php echo $post_id;?>" class="click-to-check-likes"><?php echo likeMessage($post_id, $user_id, $conn); ?></span>
 
         <!-- result data show here -->
     </div>
-    <div id="one<?php echo $post_id;?>"></div>
+    <!-- <div id="one<?php// echo $post_id;?>"></div> -->
+<!-- CONTENT ENDS HERE ######################## -->
+<!-- </div> -->
 
-</div>
+
 
 <?php } ?>
 <?php include("cesar525/footer.php");?>
