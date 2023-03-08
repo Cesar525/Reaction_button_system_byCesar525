@@ -28,10 +28,7 @@ $emojis_path = [
 "cesar525/emojis/angry.png",
 "cesar525/emojis/laughing.png",
 "cesar525/emojis/sad.png",
-
-
 ];
-
 
 ?>
 
@@ -41,7 +38,7 @@ $emojis_path = [
         $post_count = 6;
         for($counting_post = 0; $counting_post < $post_count; $counting_post++){
             include("cesar525/sql_checking.php");
-        ?>
+            ?>
 <div
     style="background-color: #1c1c1c;padding: 11px;border: solid 1px #575757;border-radius: 14px;margin-bottom: 11px;width: 341px;">
 
@@ -49,14 +46,15 @@ $emojis_path = [
 
     <div class="like-main-container">
         <!-- showing emijs -->
-        <button id="showemojis<?php echo $post_id;?>" onclick="clickingToDelete(<?php echo $post_id;?> , <?php echo $user_id; ?>)" style="display:inline-block;"
-            class="like-button like-button-effect">
+        <button id="showemojis<?php echo $post_id;?>" onclick="clickingToDelete(<?php echo $post_id;?> , <?php echo $user_id; ?>)" onmouseout="emojiWindowMouseOut(<?php echo $post_id;?>)" onmouseover="mouseovershow(<?php echo $post_id;?>);" style="display:inline-block;"
+            class="like-button like-button-effect"
+            data-post-id="<?php echo $post_id;?>">
            <?php echo $emojis_reaction[$current]; ?>
         </button>
 
 
         <!-- emojis selection -->
-        <div id="selectingContainer" onclick="closeOnClick()" class="emojis-container">
+        <div id="selectingContainer<?php echo $post_id;?>" onmouseout="emojiWindowMouseOut(<?php echo $post_id;?>)" onmouseover="mouseovershow(<?php echo $post_id;?>);" onclick="closeOnClick(<?php echo $post_id;?>);" class="emojis-container">
             <?php for($counting_emojis = 1; $counting_emojis < count($emojis_path); $counting_emojis++){ 
                 echo '<img  id="emojis-images"
                             class="emojis-button"

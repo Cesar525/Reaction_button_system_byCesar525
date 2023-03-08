@@ -17,10 +17,22 @@ const emojis_reaction_design = {
     "5": "<div><img class='emojis-button' style='width:10px;' src='cesar525/emojis/laughing.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;color: #dfdf7f;'> Haha</font></div>", // 5
     "6" : "<div><img class='emojis-button' style='width:10px;' src='cesar525/emojis/sad.png' alt='nothing'> <font style='font-size: 10px;margin-left: -9px;position: relative;top: -1px;'> Sad</font></div>" // 6
     };
-    
+   
+const buttons = querySelectorAll("[data-post-id='2']");
+   
+ function mouseovershow(post_id){ 
+   document.getElementById("selectingContainer" + post_id).style.display = "block";
+};
 
+function emojiWindowMouseOut(post_id){ 
+    document.getElementById("selectingContainer" + post_id).style.display = "none";
+
+};
+ 
 function clickingToDelete(post_id, user_id){
 const get_default_react = emojis_reaction_design['0'];
+
+
 //set button to default
 document.getElementById("showemojis" + post_id).innerHTML = get_default_react;
 //deleting reaction
@@ -29,9 +41,9 @@ $("#one" + post_id).load("likes_api.php", { post_ids : post_id,
                                                 key_deleting : "deleting"});
 
 };
-function closeOnClick(){
-    document.getElementById("selectingContainer").style.display = "none";
-   
+function closeOnClick(post_id){
+    document.getElementById("selectingContainer" + post_id).style.display = "none";
+    
 }
 
 function  reactionProccess(data, post_id, user_id){
