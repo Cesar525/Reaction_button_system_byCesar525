@@ -15,7 +15,7 @@ $emojis_reaction_design = [
 
 
     //Here we adding a like and if there is alike alrady this wil delete the like and add anew one.
-if(isset($_POST['new_reaction'], $_POST['user_ids'], $_POST['post_ids'])){
+if(isset($_POST['new_reaction'], $_POST['user_ids'], $_POST['post_ids'], $_POST['adding_react']) && $_POST['adding_react'] == "adding"){
 
 //variables
 $react_type = $_POST['new_reaction'];  /// reaction type by number
@@ -78,6 +78,7 @@ if($deleting_like){
     }
 }
 
+
 if(isset($_POST['load_message'], $_POST['user_ids'], $_POST['post_ids'])){
     if($_POST['load_message'] == "key"){
 $user_id = $_POST['user_ids'];
@@ -86,7 +87,6 @@ $post_id = $_POST['post_ids'];
 
     }
 }
-
 
 }else{
 echo 'Ops!! Error';

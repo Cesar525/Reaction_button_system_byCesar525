@@ -55,7 +55,8 @@ function  reactionProccess(data, post_id, user_id){
 document.getElementById("showemojis" + post_id).innerHTML = emojis_reaction_design[getReactionNumber];
 $("#one" + post_id).load("likes_api.php", { new_reaction : getReactionNumber,
                                 post_ids : post_id,
-                            user_ids : user_id});
+                            user_ids : user_id,
+                        adding_react : "adding"});
 $("#like_message" + post_id).load("likes_api.php", {load_message: "key",
                                             user_ids : user_id,
                                         post_ids : post_id });

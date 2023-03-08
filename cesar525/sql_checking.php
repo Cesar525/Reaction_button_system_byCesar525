@@ -16,8 +16,7 @@ echo 'not working';
 }
 if(mysqli_num_rows($checking_react) == 0){
 $current = 0;
-}
-;
+};
 
 
 ?>

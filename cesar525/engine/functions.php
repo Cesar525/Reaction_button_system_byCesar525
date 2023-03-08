@@ -26,6 +26,9 @@ if($coutning_total_react){
 // this function need more work 
 function likeMessage($post_id, $user_id, $conn){
 $checking_for_likes = query("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE  like_post_id='$post_id'", $conn);
+$checking_for_likesUser = query("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE  like_by_user_id='$user_id' AND like_post_id='$post_id'", $conn);
+ $reacted_by_user = mysqli_num_rows($checking_for_likesUser); 
+ $counting_others_react = mysqli_num_rows($checking_for_likes);
 //variables
 
 $like_by_me_only = false;
@@ -38,20 +41,25 @@ if($checking_for_likes){
 $row = mysqli_fetch_assoc($checking_for_likes);
 $count = mysqli_num_rows($checking_for_likes);
 
-if(mysqli_num_rows($checking_for_likes) == 0){
+if($counting_others_react == 0){
+    if($reacted_by_user == 0){
         $no_likes_yet = true;
+    }
    }
 }
-if (mysqli_num_rows($checking_for_likes) == 1){
-    if($row['like_by_user_id'] != $user_id) 
-    $like_by_one_user_only = true;
+if ($counting_others_react == 1){
+    if($reacted_by_user == 0) {
+        $like_by_one_user_only = true;
+    }
 }
-if(mysqli_num_rows($checking_for_likes) > 1){
+if($counting_others_react > 1){
+    if($reacted_by_user == 0){
     $like_more_than_one_but_me = true;
+    }
 }
-if(mysqli_num_rows($checking_for_likes) === 1){
+if($counting_others_react == 1){
     //echo 'working';
-    if($row['like_by_user_id'] == $user_id){
+    if($reacted_by_user == 1){
         $like_by_me_only = true;
     }
 }
