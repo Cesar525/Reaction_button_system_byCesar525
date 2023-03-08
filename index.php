@@ -39,9 +39,9 @@ $emojis_path = [
         for($counting_post = 0; $counting_post < $post_count; $counting_post++){// while loop
         include("cesar525/sql_checking.php"); 
             ?>
-<div
+<!-- <div
     style="background-color: #1c1c1c;padding: 11px;border: solid 1px #575757;border-radius: 14px;margin-bottom: 11px;width: 341px;">
-    <hr style="width: 339px;border: 1px solid #454444;">
+    <hr style="width: 339px;border: 1px solid #454444;"> -->
    <!-- //CONTENT STARTS HERE ########################## -->
 
 
@@ -72,7 +72,7 @@ $emojis_path = [
     </div>
     <div style="display:none;" id="one<?php echo $post_id;?>"></div>
 <!-- CONTENT ENDS HERE ######################## -->
-</div>
+<!-- </div> -->
 
 
 
