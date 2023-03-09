@@ -47,7 +47,8 @@ $emojis_path = [
         <!-- showing emijs -->
         <button id="showemojis<?php echo $post_id;?>" onclick="clickingToDelete(<?php echo $post_id;?> , <?php echo $user_id; ?>)" onmouseout="emojiWindowMouseOut(<?php echo $post_id;?>)" onmouseover="mouseovershow(<?php echo $post_id;?>);" style="display:inline-block;"
             class="like-button like-button-effect"
-            data-post-id="<?php echo $post_id;?>">
+            data-post-id="<?php echo $post_id;?>"
+            <?php echo 'data-current-'.$current.'='. $current; ?>">
            <?php echo $emojis_reaction[$current]; ?>
         </button>
         <!-- emojis selection -->
@@ -68,8 +69,9 @@ $emojis_path = [
 
         <!-- result data show here -->
     </div>
-    <div style="display:none;" id="one<?php echo $post_id;?>"></div>
-<!-- CONTENT ENDS HERE ######################## -->
+    <div  id="one<?php echo $post_id;?>">mino</div>
+    <div  id="two<?php echo $post_id;?>">two</div>
+<!-- CONTENT ENDS HERE ######################## style="display:none;"-->
 
 
 
