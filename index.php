@@ -70,8 +70,8 @@ $emojis_path = [
 
         <!-- result data show here -->
     </div>
-    <div  id="one<?php echo $post_id;?>">mino</div>
-    <div  id="two<?php echo $post_id;?>">two</div>
+    <div  id="one<?php echo $post_id;?>"></div>
+    <div  id="two<?php echo $post_id;?>"></div>
 <!-- CONTENT ENDS HERE ######################## style="display:none;"-->
 
 

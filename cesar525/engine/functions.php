@@ -26,6 +26,7 @@ if($coutning_total_react){
 
 // this function need more work 
 function likeMessage($post_id, $user_id, $conn){
+    sleep(0.6);
 $checking_for_likes = query("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE  like_post_id='$post_id'", $conn);
 $checking_for_likesUser = query("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE  like_by_user_id='$user_id' AND like_post_id='$post_id'", $conn);
 //variables
@@ -33,21 +34,23 @@ $like_by_me_only = false;
 $like_by_one_user_only = false;
 $no_likes_yet = false;
 $like_more_than_one_but_me = false;
-$like_by_my_and_more_users = false;
+$like_by_me_and_more_users = false;
+$me_and_one_user_reacted_to_it = false;
+
 if($checking_for_likesUser){
-    echo'Working1';
+ //   echo'Working1';
 $reacted_by_user = mysqli_num_rows($checking_for_likesUser); 
 
 }else{
-    echo'not working';
+   // echo'not working';
 }
 
 if($checking_for_likes){
-   echo 'Workin2';
+ //  echo 'Workin2';
 $row = mysqli_fetch_assoc($checking_for_likes);
 $count_likes_by_others = mysqli_num_rows($checking_for_likes);
 }else{
-    echo 'not working';
+  //  echo 'not working';
 }
 
 
@@ -68,9 +71,18 @@ if($count_likes_by_others > 1){
     }
 }
 if($count_likes_by_others == 1){
-    //echo 'working';
     if($reacted_by_user == 1){
         $like_by_me_only = true;
+    }
+}
+if($count_likes_by_others > 2){
+    if($reacted_by_user == 1){
+        $like_by_me_and_more_users = true;
+    }
+}
+if($count_likes_by_others == 2){
+    if($reacted_by_user == 1){
+        $me_and_one_user_reacted_to_it = true;
     }
 }
 
@@ -85,6 +97,12 @@ if($count_likes_by_others == 1){
     }
     if($no_likes_yet){ // woks
         echo' No reaction yet';
+    }
+    if($like_by_me_and_more_users){
+        echo 'you and '. $count_likes_by_others.' others reacted to this';
+    }
+    if($me_and_one_user_reacted_to_it){
+        echo'you and another user reacted to this'; 
     }
     
 }

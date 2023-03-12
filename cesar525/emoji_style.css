@@ -68,11 +68,13 @@
 .click-to-check-likes {
     color: #b5b5b5;
     transition: color ease 0.3s;
+    font-size: 14px
 }
 
 .click-to-check-likes:hover {
     color: #c78e54;
     cursor: pointer;
+    
 }
 
 @keyframes fadeIn {

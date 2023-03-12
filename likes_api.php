@@ -58,7 +58,7 @@ if($result_like_insert){
 
 if(isset($_POST['user_ids'], $_POST['post_ids'], $_POST['key_deleting'])){
     //set variables
-    echo '<br>entered'; 
+   // echo '<br>entered'; 
     $post_id_deleting  = $_POST['post_ids'];
     $user_id = $_POST['user_ids'];
     $keyToDelete = $_POST['key_deleting']; 
