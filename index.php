@@ -35,7 +35,7 @@ $emojis_path = [
 <?php  
         
         
-        $post_count = 2;
+        $post_count = 4;
         for($counting_post = 0; $counting_post < $post_count; $counting_post++){// while loop
         include("cesar525/sql_checking.php"); 
             ?>
@@ -59,6 +59,7 @@ $emojis_path = [
                             onclick="reactionProccess(this, '. $post_id .', '.$user_id.')" 
                             src="'.$emojis_path[$counting_emojis].'" 
                             alt=""
+                            data-current-'.$post_id.'="'.$current.'"
                             data-emoji-'.$post_id.'="'.$counting_emojis.'">';
             }
                 ?>

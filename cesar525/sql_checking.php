@@ -2,7 +2,7 @@
 
 
 $post_id = $counting_post;
-$user_id = 155; 
+$user_id = 190; 
 //Checking for reactions
 $checking_react = query("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE like_by_user_id='$user_id' AND like_post_id='$post_id'", $conn);
 if($checking_react){

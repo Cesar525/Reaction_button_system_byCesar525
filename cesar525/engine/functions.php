@@ -12,6 +12,7 @@ function query($sql, $conn){
 function countingPostReactions($post_id, $conn){
     $coutning_total_react = query("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE  like_post_id='$post_id'", $conn);
 if($coutning_total_react){
+    
     if(mysqli_num_rows($coutning_total_react) == 0){
         $react_count = 0;
     return $react_count;
@@ -27,37 +28,46 @@ if($coutning_total_react){
 function likeMessage($post_id, $user_id, $conn){
 $checking_for_likes = query("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE  like_post_id='$post_id'", $conn);
 $checking_for_likesUser = query("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE  like_by_user_id='$user_id' AND like_post_id='$post_id'", $conn);
- $reacted_by_user = mysqli_num_rows($checking_for_likesUser); 
- $counting_others_react = mysqli_num_rows($checking_for_likes);
 //variables
-
 $like_by_me_only = false;
 $like_by_one_user_only = false;
 $no_likes_yet = false;
 $like_more_than_one_but_me = false;
+$like_by_my_and_more_users = false;
+if($checking_for_likesUser){
+    echo'Working1';
+$reacted_by_user = mysqli_num_rows($checking_for_likesUser); 
+
+}else{
+    echo'not working';
+}
 
 if($checking_for_likes){
-   //echo 'Working';
+   echo 'Workin2';
 $row = mysqli_fetch_assoc($checking_for_likes);
-$count = mysqli_num_rows($checking_for_likes);
+$count_likes_by_others = mysqli_num_rows($checking_for_likes);
+}else{
+    echo 'not working';
+}
 
-if($counting_others_react == 0){
+
+if($count_likes_by_others == 0){
     if($reacted_by_user == 0){
         $no_likes_yet = true;
     }
    }
-}
-if ($counting_others_react == 1){
+
+if ($count_likes_by_others == 1){
     if($reacted_by_user == 0) {
         $like_by_one_user_only = true;
     }
 }
-if($counting_others_react > 1){
+if($count_likes_by_others > 1){
     if($reacted_by_user == 0){
     $like_more_than_one_but_me = true;
     }
 }
-if($counting_others_react == 1){
+if($count_likes_by_others == 1){
     //echo 'working';
     if($reacted_by_user == 1){
         $like_by_me_only = true;
@@ -65,17 +75,18 @@ if($counting_others_react == 1){
 }
 
     if($like_by_one_user_only){ // others react toit but you
-    echo $count. ' user reacted to this.'; // done works
+    echo $count_likes_by_others. ' user reacted to this.'; // done works
     }
     if($like_by_me_only){ // when you are the only first one reacting to it.
         echo ' You reacted to this.';   // done works
     }
     if($like_more_than_one_but_me){ // done works
-        echo $count . ' users reacted to this.';
+        echo $count_likes_by_others . ' users reacted to this.';
     }
     if($no_likes_yet){ // woks
         echo' No reaction yet';
     }
+    
 }
 
 ?>

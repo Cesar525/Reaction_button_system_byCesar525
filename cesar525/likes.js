@@ -52,15 +52,17 @@ function  reactionProccess(data, post_id, user_id){
     const getcurrentReact =  data.getAttribute("data-current-" + post_id);
    const getReactionNumber = data.getAttribute("data-emoji-" + post_id);
 document.getElementById("showemojis" + post_id).innerHTML = emojis_reaction_design[getReactionNumber];
-$("#one" + post_id).load("likes_api.php", { new_reaction : getReactionNumber,
-                                post_ids : post_id,
-                            user_ids : user_id,
-                        adding_react : "adding"});
-                       
-                        if(getReactionNumber != getcurrentReact){
-$("#like_message" + post_id).load("likes_api.php", {load_message: "key",
-                                            user_ids : user_id,
-                                        post_ids : post_id });
-                                    }
+
+$("#one" + post_id).load("likes_api.php", 
+{ new_reaction : getReactionNumber,
+            post_ids : post_id,
+        user_ids : user_id,
+    adding_react : "adding"});
+                
+    $("#like_message" + post_id).load("likes_api.php", {load_message: "key",
+    user_ids : user_id,
+    post_ids : post_id });
+    
+    console.log(user_id + post_id)
 
 };// + getReactionNumber
