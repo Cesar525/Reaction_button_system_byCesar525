@@ -1,7 +1,7 @@
 <?php 
 include("cesar525/header.php");
 include("cesar525/engine/init.php");
-
+include("cesar525/modal.php");
 ?>
     <link rel="stylesheet" href="cesar525/emoji_style.css">
 
@@ -53,15 +53,17 @@ $emojis_path = [
         </button>
         <!-- emojis selection -->
         <div id="selectingContainer<?php echo $post_id;?>" onmouseout="emojiWindowMouseOut(<?php echo $post_id;?>)" onmouseover="mouseovershow(<?php echo $post_id;?>);" onclick="closeOnClick(<?php echo $post_id;?>);" class="emojis-container">
-            <?php for($counting_emojis = 1; $counting_emojis < count($emojis_path); $counting_emojis++){ 
-                echo '<img  id="emojis-images"
+            <?php for($counting_emojis = 1; $counting_emojis < count($emojis_path); $counting_emojis++)
+                        { 
+                    echo '<img  
+                            id="emojis-images"
                             class="emojis-button"
                             onclick="reactionProccess(this, '. $post_id .', '.$user_id.')" 
                             src="'.$emojis_path[$counting_emojis].'" 
                             alt=""
                             data-current-'.$post_id.'="'.$current.'"
                             data-emoji-'.$post_id.'="'.$counting_emojis.'">';
-            }
+                        }
                 ?>
             <!-- <img class="emojis-button" src="" alt=""> -->
         </div>
