@@ -83,6 +83,7 @@ if(isset($_POST['load_message'], $_POST['user_ids'], $_POST['post_ids'])){
     if($_POST['load_message'] == "key"){
 $user_id = $_POST['user_ids'];
 $post_id = $_POST['post_ids'];
+sleep(1);
         echo likeMessage($post_id, $user_id, $conn);
 
     }

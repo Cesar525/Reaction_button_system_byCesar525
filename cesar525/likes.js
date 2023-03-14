@@ -63,6 +63,6 @@ $("#one" + post_id).load("likes_api.php",
     user_ids : user_id,
     post_ids : post_id });
     
-    console.log(user_id + post_id)
+    console.log(getcurrentReact + " And " + getReactionNumber)
 
-};// + getReactionNumber
+};

@@ -26,7 +26,7 @@ if($coutning_total_react){
 
 // this function need more work 
 function likeMessage($post_id, $user_id, $conn){
-    sleep(0.6);
+
 $checking_for_likes = query("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE  like_post_id='$post_id'", $conn);
 $checking_for_likesUser = query("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE  like_by_user_id='$user_id' AND like_post_id='$post_id'", $conn);
 //variables
@@ -99,7 +99,7 @@ if($count_likes_by_others == 2){
         echo' No reaction yet';
     }
     if($like_by_me_and_more_users){
-        echo 'you and '. $count_likes_by_others.' others reacted to this';
+        echo 'you and '. ($count_likes_by_others - 1) .' others reacted to this';
     }
     if($me_and_one_user_reacted_to_it){
         echo'you and another user reacted to this'; 
