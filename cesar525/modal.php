@@ -16,7 +16,7 @@
 }
 </style>
 <div id="id01<?php echo $post_id;?>" class="w3-modal w3-animate-opacity">
-    <div class="w3-modal-content w3-card-4" style="border-radius: 0;background-color: #090909;border: ;">
+    <div class="w3-modal-content w3-card-4" style="border-radius: 0;background-color: #090909;border: solid 1px #47474721;">
         <header style="background-color: #1a1a1a;border-radius: 0px;height: 20px;border: solid 1px #383838;">
             <span style="display:inline-block;"
                 onclick="document.getElementById('id01' + <?php echo $post_id ?>).style.display='none'"
@@ -31,7 +31,12 @@
             <div style="padding: 11px;">
 
                 <!-- <font>Post id = <?php //echo $post_id; ?> </font> -->
+
+
+
                 <!-- checking for likes -->
+
+
                 <?php
 $checking_theLikes = query("SELECT like_type, like_by_user_id, like_post_id 
 FROM likes_storage 
@@ -40,8 +45,9 @@ if(!$checking_theLikes){
   echo 'not working';
 
 }else{
-  echo '<div style="padding: 21px;font-size: 31px;font-family: anton;color: orange;">Reactions</div>';
-if(mysqli_num_rows($checking_theLikes) == 0){
+  echo '<div style="margin-bottom: -29px;padding: 21px;font-size: 31px;font-family: anton;color: orange;margin-top: -29px;">Reactions</div>';
+echo'<hr style="color: #d3d3d324;">';
+  if(mysqli_num_rows($checking_theLikes) == 0){
   echo '<center><font>There is no reaction at this moment.</font></center>';
 }
 while($row_reactions = mysqli_fetch_assoc($checking_theLikes)){ ?>

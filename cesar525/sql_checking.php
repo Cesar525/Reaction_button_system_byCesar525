@@ -1,5 +1,5 @@
 <?php 
-include("cesar525/config.php");
+// include("cesar525/config.php");
 
 $user_id = $config['loggedin_useR_id']; 
 //Checking for reactions

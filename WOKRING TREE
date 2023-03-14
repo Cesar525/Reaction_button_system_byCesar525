@@ -1,10 +1,5 @@
-Working on --
-1) adding post to sql -- DONE
-2) adding like on the default -- DONE
-3) clicking on the same like will cancel the like -- DONE
-4) like count "you and 20 people reacted to this" ect.. if you didnt like it then say "20 people reacted to this" -- DONE
-5) when you click on the reactions a modal window should pop up from the top and show all the reactions from people with user_names on the side. -- later
-
-
-working on --
-still having the problem on fireFox browser. whne i click the same reaction twice i switch to "i didnt made any reaction"
+working on -- 
+everything is done all we have to so is -
+1) Set it up for easy install.
+2) Implement it to the website.
+3) Put it at the download section and create a tutorial for install.

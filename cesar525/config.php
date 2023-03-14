@@ -11,7 +11,7 @@ $config['database'] = "likes";
 $config['account_sql']  = "SELECT user_ids, user_name FROM account";
 $config['user_name_account'] = "user_name"; // user name column name. 
 
-$config['loggedin_useR_id'] = 133; // setup the logged in user id example $_SESSION[''user_id];
+$config['loggedin_useR_id'] = 135; // setup the logged in user id example $_SESSION[''user_id];
 
 
 ?>
