@@ -1,9 +1,9 @@
 <?php 
-include("cesar525/header.php");
+include("cesar525_likebutton/header.php");
 
 
 //important to add headers
-include("cesar525/engine/init.php");
+include("cesar525_likebutton/engine/init.php");
 ?>
 
 <?php  
@@ -14,8 +14,8 @@ include("cesar525/engine/init.php");
         
 //CONTENT STARTS HERE ##########################
     $post_id = $counting_post; //setup the post id
-    include("cesar525/sql_checking.php"); 
-    include("cesar525/modal.php");
+    include("cesar525_likebutton/sql_checking.php"); 
+    include("cesar525_likebutton/modal.php");
    ?>
 <div class="like-main-container">
     <!-- showing emijs -->
@@ -57,4 +57,4 @@ include("cesar525/engine/init.php");
 <?php } 
 
 ?>
-<?php include("cesar525/footer.php");?>
+<?php include("cesar525_likebutton/footer.php");?>
