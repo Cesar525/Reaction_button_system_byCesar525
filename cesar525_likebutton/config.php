@@ -7,11 +7,11 @@ $config['password'] = "";
 $config['database'] = "likes";  
 
 
-//ACCOUNT SQL for user setup
-$config['account_sql']  = "SELECT user_ids, user_name FROM account";
+//ACCOUNT SQL for user setup to show the names when you want to see who reacted to your post.
+$config['accounts_sql']  = "SELECT user_id, user_name FROM account"; // SELECTS AND FROM ONLY
 $config['user_name_account'] = "user_name"; // user name column name. 
+$config['user_id_column_name'] = "user_id" // as it says
 
-$config['loggedin_useR_id'] = 135; // setup the logged in user id example "$_SESSION['user']";
-
+//
 
 ?>

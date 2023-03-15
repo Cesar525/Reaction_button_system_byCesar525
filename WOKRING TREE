@@ -3,3 +3,19 @@ everything is done all we have to so is -
 1) Set it up for easy install.
 2) Implement it to the website.
 3) Put it at the download section and create a tutorial for install.
+
+
+install instructions
+1) drop the files in you webpage project folder.
+2) setup the database info
+3) setup the user id in sql_checking.php file with who ever is logged in example: $_SESSION['user_id']
+4) setup the following headers headers inside where the likes are going to be ON TOP
+        a)  <?php include("cesar525_likebutton/engine/init.php"); ?>
+5) Pase the code inside the while loop so it can set it self on each post the while loop will provide and fill up the following parts
+        a) $post_id = $rows_of_posts['post_id];
+6) DONE
+
+TODO - install on the Dev lets work website.
+if it works fine then set up the virtual host to demos trate people how it works.
+
+

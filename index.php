@@ -12,8 +12,8 @@ include("cesar525_likebutton/engine/init.php");
         $post_count = 4;
         for($counting_post = 0; $counting_post < $post_count; $counting_post++){// while loop
         
-//CONTENT STARTS HERE ##########################
-    $post_id = $counting_post; //setup the post id
+//CONTENT STARTS HERE ########################## ALL THIS WILL GO INSIDE THE WHILE LOOP UNTIL THE END OF THE CONTENT
+    $post_id = $counting_post; //setup the post id example $row['post_id'] from database
     include("cesar525_likebutton/sql_checking.php"); 
     include("cesar525_likebutton/modal.php");
    ?>
