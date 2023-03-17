@@ -48,17 +48,17 @@ echo'<hr style="color: #d3d3d324;">';
   echo '<center><font>There is no reaction at this moment.</font></center>';
 }
 while($row_reactions = mysqli_fetch_assoc($checking_theLikes)){ 
-//getting usernames from who every reacted to this
+//getting usernames from who every reacted to the post
 $user_id = $row_reactions['like_post_id'];
-$getting_user_names  = query($config['accounts_sql'] . "WHERE " . $config['user_id_column_name']."='$user_id'" , $conn);
+
+$getting_user_names  = query($config['accounts_sql'], $conn);
 if(!$getting_user_names){
     echo 'ERROR, Not Working SQL Query!';
+    $user_name = 134;
 }else{
     $rows_account = mysqli_fetch_assoc($getting_user_names);
 $user_name = $rows_account[$config['user_names_colum_name']];
 }
-
-
 ?>
                 <div>
                     <div style="display:inline-block;"><img style="width: 30px;height: 30px;"
