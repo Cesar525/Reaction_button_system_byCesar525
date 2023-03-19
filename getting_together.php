@@ -115,7 +115,7 @@ $user_id = $row_reactions['like_post_id'];
 
 $getting_user_names  = query($nothing, $conn);
 if(!$getting_user_names){
-    echo 'ERROR, Not Working SQL Query!';
+    echo 'ERROR, Not Working SQL query!';
     $user_name = 134;
 }else{
     $rows_account = mysqli_fetch_assoc($getting_user_names);

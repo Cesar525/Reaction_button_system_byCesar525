@@ -104,16 +104,18 @@ if($count_likes_by_others == 2){
     }
     if($me_and_one_user_reacted_to_it){
         echo'you and another user reacted to this'; 
-    }
-    
+    }  
 }
 
-function REACT_BUTTON($post_id, $user_id_, $accound_query, $conn){
+function REACT_BUTTON($post_id, $user_id_, $accound_query_, $account_user_name_colomn,  $conn){
 // variables needed
 $post_id_ = $post_id;
 $user_id = $user_id_;
-
-
+if(isset($account_query_)){
+$account_query = $account_query_;
+}else{
+    $account_query = "There is no SQL";
+}
 
 
 $emojis_reaction = [
@@ -146,7 +148,7 @@ $checking_react = query("SELECT like_type, like_by_user_id, like_post_id FROM li
 if($checking_react){
 $row = mysqli_fetch_assoc($checking_react);
 $current = $row['like_type'];
-echo 'not working';
+//echo 'not working';
 }else{
 }
 if(mysqli_num_rows($checking_react) == 0){
@@ -229,15 +231,15 @@ echo'<hr style="color: #d3d3d324;">';
 }
 while($row_reactions = mysqli_fetch_assoc($checking_theLikes)){ 
 //getting usernames from who every reacted to the post
-$user_id = $row_reactions['like_post_id'];
+$user_id = $row_reactions['like_by_user_id'];// people reacted to this post.
 
 $getting_user_names  = query($account_query , $conn);
 if(!$getting_user_names){
-    echo 'ERROR, Not Working SQL Query!';
-    $user_name = "default";
+    echo 'ERROR, Not Working SQL query or not set.';
+    $user_name = "default with user ID = " . $user_id;
 }else{
     $rows_account = mysqli_fetch_assoc($getting_user_names);
-$user_name = $rows_account[$config['user_names_colum_name']];
+$user_name = $rows_account[$account_user_name_colomn];
 }
 ?>
                 <div>
