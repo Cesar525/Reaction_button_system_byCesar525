@@ -51,7 +51,7 @@ while($row_reactions = mysqli_fetch_assoc($checking_theLikes)){
 //getting usernames from who every reacted to the post
 $user_id = $row_reactions['like_post_id'];
 
-$getting_user_names  = query($config['accounts_sql'], $conn);
+$getting_user_names  = query($nothing, $conn);
 if(!$getting_user_names){
     echo 'ERROR, Not Working SQL Query!';
     $user_name = 134;
