@@ -12,11 +12,14 @@
     <link rel="icon" type="image/x-icon" href="cesar525_likebutton/imgs/logo.png">
     <link rel="stylesheet" href="cesar525_likebutton/style.css">
     
+    <!-- //ADDING ON HEADERS -->
     <script
   src="https://code.jquery.com/jquery-3.6.3.min.js"
   integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
   crossorigin="anonymous"></script>
   <script src="./cesar525_likebutton/likes.js"></script>
+  <link rel="stylesheet" href="cesar525_likebutton/emoji_style.css">
+
 </head>
 <body>
 
