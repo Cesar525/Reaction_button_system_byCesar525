@@ -6,6 +6,8 @@ Modern Reaction button System for Forum and Contents
 * JAVASCRIPT
 * PHP 
 
+# INSTALLING PROCEDURES
+
 
 # Images
 ![Scheme](likeButton.PNG)
