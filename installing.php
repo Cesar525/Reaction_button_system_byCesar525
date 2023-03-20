@@ -1,5 +1,5 @@
 <?php
-//include this these headers
+//include this these headers on top of the page where the like will be located.
 include("cesar525_likebutton/engine/init.php");
 
 //include these variables inside the while loop set them up with your own info along with the display function .
