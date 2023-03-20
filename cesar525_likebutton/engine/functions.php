@@ -1,7 +1,7 @@
 <?php
 
 
-function query($sql, $conn){
+function queryLikeButton($sql, $conn){
     $result_of_query = mysqli_query($conn, $sql);
     if($result_of_query){
         return $result_of_query;
@@ -11,7 +11,7 @@ function query($sql, $conn){
 }
 
 function countingPostReactions($post_id, $conn){
-    $coutning_total_react = query("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE  like_post_id='$post_id'", $conn);
+    $coutning_total_react = queryLikeButton("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE  like_post_id='$post_id'", $conn);
 if($coutning_total_react){
     
     if(mysqli_num_rows($coutning_total_react) == 0){
@@ -28,8 +28,8 @@ if($coutning_total_react){
 // this function need more work 
 function likeMessage($post_id, $user_id, $conn){
 
-$checking_for_likes = query("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE  like_post_id='$post_id'", $conn);
-$checking_for_likesUser = query("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE  like_by_user_id='$user_id' AND like_post_id='$post_id'", $conn);
+$checking_for_likes = queryLikeButton("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE  like_post_id='$post_id'", $conn);
+$checking_for_likesUser = queryLikeButton("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE  like_by_user_id='$user_id' AND like_post_id='$post_id'", $conn);
 //variables
 $like_by_me_only = false;
 $like_by_one_user_only = false;
@@ -144,7 +144,7 @@ $emojis_path = [
 
 
 
-$checking_react = query("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE like_by_user_id='$user_id' AND like_post_id='$post_id'", $conn);
+$checking_react = queryLikeButton("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE like_by_user_id='$user_id' AND like_post_id='$post_id'", $conn);
 if($checking_react){
 $row = mysqli_fetch_assoc($checking_react);
 $current = $row['like_type'];
@@ -197,7 +197,7 @@ $current = 0;
 <!-- //CONTENT ENDS HERE ########################## -->
 
 <!-- MODAL -->
-<div id="id01<?php echo $post_id;?>" class="w3-modal w3-animate-opacity">
+<div id="id01<?php echo $post_id;?>" class="w3-modal w3-animate-opacity" style="color:white;">
     <div class="w3-modal-content w3-card-4" style="border-radius: 0;background-color: #090909;border: solid 1px #47474721;">
         <header style="background-color: #1a1a1a;border-radius: 0px;height: 20px;border: solid 1px #383838;">
             <span style="display:inline-block;"
@@ -214,7 +214,7 @@ $current = 0;
 
                 <?php
 
-$checking_theLikes = query("SELECT like_type, like_by_user_id, like_post_id 
+$checking_theLikes = queryLikeButton("SELECT like_type, like_by_user_id, like_post_id 
 FROM likes_storage 
 WHERE like_post_id='$post_id'", $conn);
 if(!$checking_theLikes){
@@ -233,7 +233,7 @@ while($row_reactions = mysqli_fetch_assoc($checking_theLikes)){
 //getting usernames from who every reacted to the post
 $user_id = $row_reactions['like_by_user_id'];// people reacted to this post.
 
-$getting_user_names  = query($account_query , $conn);
+$getting_user_names  = queryLikeButton($account_query , $conn);
 if(!$getting_user_names){
     echo 'ERROR, Not Working SQL query or not set.';
     $user_name = "default with user ID = " . $user_id;

@@ -23,7 +23,7 @@ $reacted_object_id = $_POST['post_ids']; // id if object user reacted to
 $react_made_by = $_POST['user_ids']; // id of user that posted the reaction
 
 //checking if there is any likes on this post. my user_id and post_id check
-$checking_for_likes = query("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE like_by_user_id='$react_made_by' AND like_post_id='$reacted_object_id'", $conn);
+$checking_for_likes = queryLikeButton("SELECT like_type, like_by_user_id, like_post_id FROM likes_storage WHERE like_by_user_id='$react_made_by' AND like_post_id='$reacted_object_id'", $conn);
 $like_found = false;
 if($checking_for_likes){
    // echo 'working';
@@ -33,7 +33,7 @@ if($checking_for_likes){
     }
 if($like_found){
     // here is like where found it will deleted
-    $deleting_like = query("DELETE FROM likes_storage WHERE like_by_user_id='$react_made_by' AND like_post_id='$reacted_object_id'", $conn);
+    $deleting_like = queryLikeButton("DELETE FROM likes_storage WHERE like_by_user_id='$react_made_by' AND like_post_id='$reacted_object_id'", $conn);
     if($deleting_like){
     // echo 'Deleting Succes';
     }else{
@@ -45,7 +45,7 @@ if($like_found){
 }
 
 //inserting Reaction
-$result_like_insert = query("INSERT INTO likes_storage (like_type, like_by_user_id, like_post_id) 
+$result_like_insert = queryLikeButton("INSERT INTO likes_storage (like_type, like_by_user_id, like_post_id) 
                                                 VALUES ('$react_type', '$react_made_by', '$reacted_object_id')", $conn);;
 if($result_like_insert){
    // echo'INSERTED!';
@@ -66,7 +66,7 @@ if(isset($_POST['user_ids'], $_POST['post_ids'], $_POST['key_deleting'])){
     
     //key to deleting
     if($keyToDelete === "deleting"){
-$deleting_like = query("DELETE FROM likes_storage WHERE like_by_user_id='$user_id' AND like_post_id='$post_id_deleting'", $conn);
+$deleting_like = queryLikeButton("DELETE FROM likes_storage WHERE like_by_user_id='$user_id' AND like_post_id='$post_id_deleting'", $conn);
 if($deleting_like){
 //echo 'SQL working like has been deleted';
 }else{

@@ -105,3 +105,16 @@
       text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 30px #ff4da6;
     }
   }
+
+  .clicking-userName {
+    color: white;
+    position: relative;
+    right: 0px;
+    transition: right ease 0.5s;
+}
+
+.clicking-userName:hover {
+    color: yellow;
+    cursor: pointer;
+    right: -15px;
+}
