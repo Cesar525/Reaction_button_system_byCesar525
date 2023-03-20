@@ -2,7 +2,7 @@
 //include this these headers
 include("cesar525_likebutton/engine/init.php");
 
-//include these variables inside the while loop
+//include these variables inside the while loop set them up with your own info.
 $post_id = 1;
 $loggedin_user_id = 234;
 $account_SQL = NULL;
