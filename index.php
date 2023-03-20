@@ -20,7 +20,7 @@ $images_for_examples = [
 ?>
 <!-- Then use the function to display te button but first fill up the paremeters. -->
 <?php  
-$post_count = 2;
+$post_count = 1;
 $user_id = 33;
 for($counting_post = 0; $counting_post < $post_count; $counting_post++){// while loop
     ?>
