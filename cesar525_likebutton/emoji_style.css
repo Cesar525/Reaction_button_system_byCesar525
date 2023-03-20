@@ -118,3 +118,16 @@
     cursor: pointer;
     right: -15px;
 }
+
+.modal-exit-button{
+    display: inline-block;
+color: red;
+position: absolute;
+font-size: 40px;
+top: -13px;
+cursor: pointer;
+}
+.modal-exit-button:hover{
+    color:yellow;
+    cursor:pointer;
+}

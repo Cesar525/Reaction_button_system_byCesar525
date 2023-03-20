@@ -9,7 +9,7 @@ $account_SQL = NULL;
 $account_user_name_column = NULL;
 
 
-//display the button
+//display the button fucntion
 echo'<center>';
 echo REACT_BUTTON($post_id, $loggedin_user_id, $account_SQL, $account_user_name_column, $conn);
 echo '</center>';

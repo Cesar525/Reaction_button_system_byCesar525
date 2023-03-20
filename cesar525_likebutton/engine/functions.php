@@ -202,7 +202,7 @@ $current = 0;
         <header style="background-color: #1a1a1a;border-radius: 0px;height: 20px;border: solid 1px #383838;">
             <span style="display:inline-block;"
                 onclick="document.getElementById('id01' + <?php echo $post_id ?>).style.display='none'"
-                class="w3-button w3-large w3-display-topright">&times;</span>
+                class="w3-button w3-large w3-display-topright modal-exit-button">&times;</span>
             <div style="display:inline-block;width: 97%;">
                 <center>
                     <font>Who reacted to this?</font>
