@@ -20,3 +20,6 @@ The installing.php give you a better example on how to install it.
 
 # Images
 ![Scheme](likeButton.PNG)
+
+# Dev
+Contact and Support me at my Website [Dev Let's Work Together](https://devletswork.com/)
