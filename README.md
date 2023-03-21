@@ -15,8 +15,7 @@ it explains you what to do.
      * cesar525_likebutton folder
      * likes_api.php
 in order for the button to work. The rest is just examples ECT for you to learn how to install it..
-
-the installing php is a easy way to install it.
+The installing.php give you a better example on how to install it.
 
 
 # Images
