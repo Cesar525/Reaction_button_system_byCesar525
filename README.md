@@ -23,3 +23,5 @@ The installing.php give you a better example on how to install it.
 
 # Dev
 Contact and Support me at my Website [Dev Let's Work Together](https://devletswork.com/)
+## License
+* ![MIT](LICENSE)
