@@ -4,7 +4,7 @@ Modern Reaction button System for Forum and Contents
 # Programing L used
 * HTML / CSS
 * JAVASCRIPT
-* PHP 
+* PHP version: 7.2.34 
 
 # INSTALLING PROCEDURES
 * Upload the database SQL file called "sql_schema_likes.sql" located: inside cesar525_likeButton/engine/ to your database
