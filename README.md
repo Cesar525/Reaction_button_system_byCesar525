@@ -12,8 +12,8 @@ Modern Reaction button System for Forum and Contents
 * Go to the installing.php file and do the same thing i did in order to add the like button.
 it explains you what to do.
 * Important files to pass.
-     cesar525_likebutton folder
-     likes_api.php
+     > cesar525_likebutton folder
+     > likes_api.php
 in order for the button to work. The rest is just examples ECT for you to learn how to install it..
 
 the installing php is a easy way to install it.
