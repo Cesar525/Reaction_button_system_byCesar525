@@ -31,7 +31,7 @@ for($counting_post = 0; $counting_post < $post_count; $counting_post++){// while
     </div>
     <div>
         <?php
-    REACT_BUTTON($counting_post, $user_id, "account Query","user_name_in_query",  $conn);
+    REACT_BUTTON($counting_post, $user_id, "SELECT user_id, user_name FROM account","user_name", "user_id",  $conn);
 ?>
     </div>
 </div>
