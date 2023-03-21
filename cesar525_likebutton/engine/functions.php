@@ -107,7 +107,7 @@ if($count_likes_by_others == 2){
     }  
 }
 
-function REACT_BUTTON($post_id, $user_id_, $accound_query_, $account_user_name_colomn,  $conn){
+function REACT_BUTTON($post_id, $user_id_, $account_query_, $account_user_name_colomn, $col_selet, $conn){
 // variables needed
 $post_id_ = $post_id;
 $user_id = $user_id_;
@@ -233,7 +233,7 @@ while($row_reactions = mysqli_fetch_assoc($checking_theLikes)){
 //getting usernames from who every reacted to the post
 $user_id = $row_reactions['like_by_user_id'];// people reacted to this post.
 
-$getting_user_names  = queryLikeButton($account_query , $conn);
+$getting_user_names  = queryLikeButton($account_query . " WHERE ".$col_selet."='$user_id'" , $conn);
 if(!$getting_user_names){
     echo 'ERROR, Not Working SQL query or not set.';
     $user_name = "default with user ID = " . $user_id;
